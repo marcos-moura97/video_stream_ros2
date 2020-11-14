@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Webcam Stream ROS2</title>
+    <style>
+         p{font-size:15px}
+         li{font-size:15px}
+    </style>
+</head>
+
+<!-- Using Bootstrap to make a responsive HTML -->
+<body>
+<div class="container">
+    <div class="row">
+        <!-- First Column, Video Stream and RQT Graph -->
+        <div class="col">
+            <!-- Video Stream -->
+            <h4 class="mt-5" style="text-align: center;">Website Stream of Webcam</h4>
+            <img src="{{ url_for('video_feed') }}" width="100%">
+
+        </div>
+
+
+        <!-- First Column, Information about the project -->
+        <div class="col">
+
+            <!-- Brief Descriptio  -->
+            <h4 class="mt-5" style="text-align: center;">Description of the Projetct</h4>
+            <p>The object of this project is to make a website stream of camera image.<br>
+
+           
+            <!-- Info about the subscriber -->
+           <h4 class="mt-5" style="text-align: center;">Subscriber</h4>
+
+		<p>The subscriber is a Python code (<b>app.py</b>) that recieves the message from the topic <b>/image</b> and share it in a hosted website using the Flask Framework.
+
+		As the topic message can arrive at any time and the Flask application cannot stop, events related to ROS are executed in parallel within the code, through Threads.
+
+		The trick is create the subscriber node and target it in the Thread. This makes any event in the node redirect for the image processing functions, like a  external interrupt in microcontrolers.
+		 
+		 The subscriber node name is <b>/Show_image_python</b>.</p>
+  
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
